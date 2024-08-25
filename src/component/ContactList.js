@@ -1,0 +1,19 @@
+import React from "react";
+import SearchBox from "./SearchBox";
+import ContactItem from "./ContactItem";
+import { useSelector } from "react-redux";
+
+const ContactList = () => {
+  const contactList = useSelector((state) => state.filteredContacts);
+
+  return (
+    <div>
+      <SearchBox />
+      {contactList.map((item) => (
+        <ContactItem key={item.name} item={item} />
+      ))}
+    </div>
+  );
+};
+
+export default ContactList;
