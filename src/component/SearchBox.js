@@ -12,6 +12,7 @@ const SearchBox = () => {
       type: "SEARCH_CONTACT",
       payload: { searchType, searchKeyword },
     });
+    setSearchKeyword("");
   };
 
   const handleShowAll = () => {
@@ -34,6 +35,7 @@ const SearchBox = () => {
           <Form.Control
             type="text"
             placeholder="검색어를 입력해주세요"
+            value={searchKeyword}
             onChange={(e) => setSearchKeyword(e.target.value)}
           />
         </Col>
