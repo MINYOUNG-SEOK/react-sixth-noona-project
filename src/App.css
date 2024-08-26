@@ -34,10 +34,10 @@ body {
   margin-left: auto;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   border: none;
   cursor: pointer;
   color: #ffffff;
+  padding: 0;
 }
 
 .modal {
