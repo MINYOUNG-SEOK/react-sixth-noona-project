@@ -34,16 +34,24 @@
     justify-content: center;
     text-align: left;
     flex-grow: 1;
+    overflow: hidden;
 }
 
 .contact-details div {
     margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .contact-details div:last-child {
     margin-bottom: 0;
 }
 
+.contact-actions {
+    display: flex;
+    align-items: center;
+}
 
 .edit-button {
     font-size: 19px;
