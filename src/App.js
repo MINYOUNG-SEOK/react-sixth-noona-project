@@ -1,29 +1,66 @@
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
 import ContactForm from "./component/ContactForm";
 import ContactList from "./component/ContactList";
-
-// 1. 왼쪽에는 연락처 등록하는 폼이, 오른쪽에는 연락처 리스트와 search 창이 있다
-// 2. 리스트에 유저 이름과 전화번호를 추가할 수 있다
-// 3. 리스트에 아이템이 몇개 있는지 보인다
-// 4. 사용자가 유저를 이름 검색으로 찾을 수 있다
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [currentContact, setCurrentContact] = useState(null);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const openEditModal = (contact) => {
+    setCurrentContact(contact);
+    setIsEditModalOpen(true);
+  };
+  const closeEditModal = () => {
+    setCurrentContact(null);
+    setIsEditModalOpen(false);
+  };
+
   return (
     <div className="App">
-      <h1 className="title">연락처</h1>
-      <Container>
-        <Row>
-          <Col>
-            <ContactForm />
-          </Col>
-          <Col>
-            <ContactList />
-          </Col>
-        </Row>
-      </Container>
+        <div className="circle-shape"></div>
+
+        <div className="semi-circle-shape"></div>
+
+    <div className="main-content">
+        <button className="add-button" onClick={openModal}>
+          <FontAwesomeIcon icon={faUserPlus} />
+        </button>
+
+        {isModalOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close-button" onClick={closeModal}>
+                &times;
+              </span>
+              <h2 className="modal-title">Create contact</h2>
+              <ContactForm onClose={closeModal} />
+            </div>
+          </div>
+        )}
+
+        {isEditModalOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close-button" onClick={closeEditModal}>
+                &times;
+              </span>
+              <h2 className="modal-title">Edit contact</h2>
+              <ContactForm contact={currentContact} onClose={closeEditModal} />
+            </div>
+          </div>
+        )}
+
+        <div>
+          <ContactList onEditContact={openEditModal} />
+        </div>
+      </div>
     </div>
   );
 }
