@@ -33,7 +33,7 @@ body {
   background-color: transparent;
   margin-left: auto;
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   border: none;
   cursor: pointer;
   color: #ffffff;
@@ -138,7 +138,7 @@ body {
   }
 
   .add-button {
-    font-size: 20px;
+    font-size: 23px;
   }
 }
 
@@ -168,7 +168,6 @@ body {
   }
 
   .add-button {
-    font-size: 18px;
-    ;
+    font-size: 20px;
   }
 }
