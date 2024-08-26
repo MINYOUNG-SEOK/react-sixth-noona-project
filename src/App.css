@@ -19,6 +19,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   background-color: #a18aff;
   border: 5px solid #ffffff;
+  position: relative; 
 }
 
 .add-button {
@@ -85,22 +86,22 @@ body {
 
 .circle-shape {
   position: absolute;
-  top: 10px; 
-  left: 550px;
-  width: 100px;
-  height: 100px;
+  top: -50px;
+  left: -50px;
+  width: 110px;
+  height: 110px;
   background-color: #3fd4f4;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 0;
 }
 
 .semi-circle-shape {
   position: absolute;
-  top: 200px;
-  right: 475px;
-  width: 110px;
+  bottom: 100px;
+  right: -125px;
+  width: 120px;
   height: 200px;
   background-color: #fac608;
-  border-radius: 0px 100px 100px 0; 
-  z-index: 1;
+  border-radius: 0 100px 100px 0; 
+  z-index: 0; 
 }
