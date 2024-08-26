@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import './ContactForm.css'; 
+import "./ContactForm.css";
 
-const ContactForm = ({contact, onClose}) => {
+const ContactForm = ({ contact, onClose }) => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const dispatch = useDispatch();
@@ -23,20 +23,20 @@ const ContactForm = ({contact, onClose}) => {
     }
 
     if (contact) {
-        dispatch({
-          type: "EDIT_CONTACT",
-          payload: { id: contact.id, name, phoneNumber  },
-        });
-      } else {
-        dispatch({
-          type: "ADD_CONTACT",
-          payload: { name, phoneNumber  },
-        });
-      }
+      dispatch({
+        type: "EDIT_CONTACT",
+        payload: { id: contact.id, name, phoneNumber },
+      });
+    } else {
+      dispatch({
+        type: "ADD_CONTACT",
+        payload: { name, phoneNumber },
+      });
+    }
 
     setName("");
     setPhoneNumber("");
-     onClose(); 
+    onClose();
   };
 
   return (
@@ -55,7 +55,7 @@ const ContactForm = ({contact, onClose}) => {
       <div className="form-group">
         <label htmlFor="formContact">Contact Number</label>
         <input
-          type="text"
+          type="tel"
           id="formContact"
           placeholder="Please enter the contact number"
           value={phoneNumber}

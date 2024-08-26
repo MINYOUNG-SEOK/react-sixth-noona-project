@@ -1,10 +1,21 @@
 body {
   background-color: #a18aff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .App {
-  max-width: 700px;
-  margin: 50px auto;
+  width: 100%;
   padding: 20px;
   font-family: 'Helvetica', 'Arial', sans-serif;
   color: #333;
@@ -13,7 +24,8 @@ body {
   background-color: #a18aff;
   border: 5px solid #ffffff;
   position: relative;
-  height: 550px;
+  height: 570px;
+  box-sizing: border-box;
 }
 
 .add-button {
@@ -100,17 +112,20 @@ body {
   z-index: 0;
 }
 
-/* 반응형 미디어 쿼리 */
 @media (max-width: 768px) {
+
+  .container {
+    max-width: 80%;
+  }
+
   .App {
-    max-width: 70%;
-    margin: 50px auto;
+    margin: 10px auto;
     padding: 15px;
   }
 
   .circle-shape {
-    top: -35px;
-    left: -40px;
+    top: -40px;
+    left: -45px;
     width: 90px;
     height: 90px;
   }
@@ -128,9 +143,12 @@ body {
 }
 
 @media (max-width: 480px) {
+  .container {
+    max-width: 80%;
+  }
+
   .App {
-    max-width: 70%;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 10px;
     height: 500px;
   }
