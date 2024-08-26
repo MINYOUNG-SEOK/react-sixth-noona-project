@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import './SearchBox.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSync, faSearch } from '@fortawesome/free-solid-svg-icons';
+import "./SearchBox.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSync, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBox = () => {
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -32,16 +32,16 @@ const SearchBox = () => {
     <div className="search-box">
       <input
         type="text"
-        placeholder="You can search Contact Information"
+        placeholder="Search..."
         value={searchKeyword}
         onChange={(e) => setSearchKeyword(e.target.value)}
-        onKeyDown={handleKeyDown} 
+        onKeyDown={handleKeyDown}
       />
       <button onClick={handleSearch} className="search-button">
-      <FontAwesomeIcon icon={faSearch} />
+        <FontAwesomeIcon icon={faSearch} />
       </button>
       <button className="show-all-button" onClick={handleShowAll}>
-      <FontAwesomeIcon icon={faSync} />
+        <FontAwesomeIcon icon={faSync} />
       </button>
     </div>
   );

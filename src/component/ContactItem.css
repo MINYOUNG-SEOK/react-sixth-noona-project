@@ -16,7 +16,7 @@
     color: #747474;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-   
+
 }
 
 .contact-avatar {
@@ -38,12 +38,12 @@
 }
 
 .contact-details div {
-    margin-bottom: 5px; 
-  }
-  
-  .contact-details div:last-child {
+    margin-bottom: 5px;
+}
+
+.contact-details div:last-child {
     margin-bottom: 0;
-  }
+}
 
 
 .edit-button {
@@ -51,7 +51,7 @@
     background-color: #ffffff;
     border: none;
     margin: 5px;
-    color:#a18aff;
+    color: #a18aff;
     cursor: pointer;
 }
 
@@ -67,4 +67,24 @@
 
 
 
+@media (max-width: 768px) {
+    .contact-item {
+        padding: 5px 15px;
+    }
 
+    .contact-avatar img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-item {
+        padding: 5px 10px;
+    }
+
+    .contact-avatar img {
+        width: 30px;
+        height: 30px;
+    }
+}

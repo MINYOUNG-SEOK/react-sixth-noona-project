@@ -1,16 +1,9 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
-* {
-  font-family: 'Inter', sans-serif;
-}
-
 body {
   background-color: #a18aff;
 }
 
 .App {
-  max-width: 700px; 
+  max-width: 700px;
   margin: 50px auto;
   padding: 20px;
   font-family: 'Helvetica', 'Arial', sans-serif;
@@ -19,12 +12,13 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   background-color: #a18aff;
   border: 5px solid #ffffff;
-  position: relative; 
+  position: relative;
+  height: 550px;
 }
 
 .add-button {
   font-size: 25px;
-  background-color: transparent; 
+  background-color: transparent;
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -97,11 +91,65 @@ body {
 
 .semi-circle-shape {
   position: absolute;
-  bottom: 100px;
-  right: -125px;
-  width: 120px;
-  height: 200px;
+  bottom: 50px;
+  right: -95px;
+  width: 90px;
+  height: 180px;
   background-color: #fac608;
-  border-radius: 0 100px 100px 0; 
-  z-index: 0; 
+  border-radius: 0 100px 100px 0;
+  z-index: 0;
+}
+
+/* 반응형 미디어 쿼리 */
+@media (max-width: 768px) {
+  .App {
+    max-width: 70%;
+    margin: 50px auto;
+    padding: 15px;
+  }
+
+  .circle-shape {
+    top: -35px;
+    left: -40px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .semi-circle-shape {
+    bottom: 70px;
+    right: -75px;
+    width: 70px;
+    height: 140px;
+  }
+
+  .add-button {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    max-width: 70%;
+    margin: 50px auto;
+    padding: 10px;
+    height: 500px;
+  }
+
+  .circle-shape {
+    top: -30px;
+    left: -30px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .semi-circle-shape {
+    bottom: 50px;
+    right: -55px;
+    width: 50px;
+    height: 100px;
+  }
+
+  .add-button {
+    font-size: 18px;
+  }
 }
