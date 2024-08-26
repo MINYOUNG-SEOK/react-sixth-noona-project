@@ -1,55 +1,72 @@
-import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import './ContactForm.css'; 
 
-const ContactForm = () => {
+const ContactForm = ({contact, onClose}) => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (contact) {
+      setName(contact.name);
+      setPhoneNumber(contact.phoneNumber);
+    }
+  }, [contact]);
 
   const addContact = (event) => {
     event.preventDefault();
 
     if (name.trim() === "" || phoneNumber.trim() === "") {
-      alert("이름과 전화번호를 입력해주세요.");
+      alert("Please enter the name and contact number.");
       return;
     }
 
-    dispatch({
-      type: "ADD_CONTACT",
-      payload: { name, phoneNumber },
-    });
+    if (contact) {
+        dispatch({
+          type: "EDIT_CONTACT",
+          payload: { id: contact.id, name, phoneNumber  },
+        });
+      } else {
+        dispatch({
+          type: "ADD_CONTACT",
+          payload: { name, phoneNumber  },
+        });
+      }
 
     setName("");
     setPhoneNumber("");
+     onClose(); 
   };
 
   return (
-    <Form onSubmit={addContact}>
-      <Form.Group className="mb-3" controlId="formName">
-        <Form.Label>이름</Form.Label>
-        <Form.Control
+    <form onSubmit={addContact} className="form-container">
+      <div className="form-group">
+        <label htmlFor="formName">Name</label>
+        <input
           type="text"
-          placeholder="이름을 입력해주세요"
+          id="formName"
+          placeholder="Please enter the name"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
-      </Form.Group>
+      </div>
 
-      <Form.Group className="mb-3" controlId="formContact">
-        <Form.Label>전화번호</Form.Label>
-        <Form.Control
-          type="number"
-          placeholder="전화번호를 입력해주세요"
+      <div className="form-group">
+        <label htmlFor="formContact">Contact Number</label>
+        <input
+          type="text"
+          id="formContact"
+          placeholder="Please enter the contact number"
           value={phoneNumber}
           onChange={(event) => setPhoneNumber(event.target.value)}
         />
-      </Form.Group>
+      </div>
 
-      <Button variant="primary" type="submit">
-        추가
-      </Button>
-    </Form>
+      <button type="submit" className="submit-add-button">
+        {contact ? "UPDATE" : "SAVE"}
+      </button>
+    </form>
   );
 };
 

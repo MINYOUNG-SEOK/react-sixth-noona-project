@@ -1,0 +1,39 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.search-box {
+    display: flex;
+    margin: 30px 0 30px 0;
+    width: 100%;
+  }
+  
+  .search-box input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    margin-right: 10px;
+    font-size: 1rem;
+  }
+  
+  .search-box button {
+    padding: 10px 20px;
+    border-radius: 10px;
+   font-size: 18px;
+  }
+  
+  .search-button {
+    color: #a18aff;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .show-all-button {
+    background-color: #ffffff;
+    margin-left: 10px;
+    border: none;
+    color: #a18aff;
+    cursor: pointer;
+  }

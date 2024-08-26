@@ -1,34 +1,51 @@
 import React from "react";
-import { Row, Col, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import "./ContactItem.css";
 
-const ContactItem = ({ item }) => {
+const ContactItem = ({ item, onEdit }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch({
-      type: "DELETE_CONTACT",
-      payload: { name: item.name, phoneNumber: item.phoneNumber },
+    if (window.confirm("Are you sure you want to delete it?")) {
+      dispatch({
+        type: "DELETE_CONTACT",
+        payload: { id: item.id },
+      });
+    }
+  };
+
+  const handleEdit = () => {
+    onEdit({
+      id: item.id,
+      name: item.name,
+      phoneNumber: item.phoneNumber,
     });
   };
+
   return (
-    <Row className="align-items-center mb-2">
-      <Col lg={1}>
+    <div className="contact-item">
+      <div className="contact-avatar">
         <img
-          width={50}
           src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg"
+          alt="avatar"
         />
-      </Col>
-      <Col lg={8}>
+      </div>
+      <div className="contact-details">
         <div>{item.name}</div>
         <div>{item.phoneNumber}</div>
-      </Col>
-      <Col lg={3}>
-        <Button variant="danger" onClick={handleDelete}>
-          삭제
-        </Button>
-      </Col>
-    </Row>
+       
+      </div>
+      <div className="contact-actions">
+        <button onClick={handleEdit} className="edit-button">
+          <FontAwesomeIcon icon={faEdit} />
+        </button>
+        <button onClick={handleDelete} className="delete-button">
+          <FontAwesomeIcon icon={faTrash} />
+        </button>
+      </div>
+    </div>
   );
 };
 
